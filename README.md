@@ -17,9 +17,9 @@ hapticFeedbackOccurred(type: .soft)
 
 ## Feedback Types
 
- - NotificationFeedback
- - ImpactFeedback
- - SelectionFeedback
+ - Notification Feedback
+ - Impact Feedback
+ - Selection Feedback
  - WKHaptic
  
  ## Platforms
