@@ -46,9 +46,11 @@ public extension View {
 }
 
 /// Triggers a haptic feedback programmatically.
+///
 /// If you want to perform different kinds of feedbacks accordingly, this function might be useful.
+///
 /// You can also use ``.haptics(onChangeOf:type:)`` on your `View`.
-public func hapticFeedback(type: WKHapticType) {
+public func hapticFeedbackOccurred(type: WKHapticType) {
     device.play(type)
 }
 #endif

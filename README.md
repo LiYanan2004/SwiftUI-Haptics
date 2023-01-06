@@ -12,7 +12,7 @@ YourView()
 ```
 or using the function programmatically
 ```swift
-hapticFeedback(type: .soft)
+hapticFeedbackOccurred(type: .soft)
 ```
 
 ## Feedback Types

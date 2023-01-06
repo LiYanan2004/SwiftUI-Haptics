@@ -98,24 +98,27 @@ public extension View {
 }
 
 /// Triggers a selection feedback programmatically.
+///
 /// You can also use ``.haptics(onChangeOf:)`` on your `View`.
-public func hapticFeedback() {
+public func hapticFeedbackOccurred() {
     let generator = UISelectionFeedbackGenerator()
     generator.prepare()
     generator.selectionChanged()
 }
 
 /// Triggers a notification feedback programmatically.
+///
 /// You can also use ``.haptics(onChangeOf:type:)`` on your `View`.
-public func hapticFeedback(type: UINotificationFeedbackGenerator.FeedbackType) {
+public func hapticFeedbackOccurred(type: UINotificationFeedbackGenerator.FeedbackType) {
     let generator = UINotificationFeedbackGenerator()
     generator.prepare()
     generator.notificationOccurred(type)
 }
 
 /// Triggers an impact feedback programmatically.
+///
 /// You can also use ``.haptics(onChangeOf:type:)`` on your `View`.
-public func hapticFeedback(type: UIImpactFeedbackGenerator.FeedbackStyle) {
+public func hapticFeedbackOccurred(type: UIImpactFeedbackGenerator.FeedbackStyle) {
     let generator = UIImpactFeedbackGenerator(style: type)
     generator.prepare()
     generator.impactOccurred()
