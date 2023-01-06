@@ -3,7 +3,6 @@ import SwiftUI
 #if os(watchOS)
 let device = WKInterfaceDevice.current()
 
-@available(watchOS 7.0, *)
 public extension View {
     /// Adds haptic feedbacks to your views when the `value` changes.
     /// - Parameters:

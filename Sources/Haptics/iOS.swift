@@ -1,7 +1,6 @@
 import SwiftUI
 
 #if os(iOS)
-@available(iOS 14.0, *)
 public extension View {
     /// Adds notification feedbacks to your views when the `value` changes.
     /// - Parameters:
