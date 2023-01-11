@@ -12,7 +12,9 @@ YourView()
 ```
 or using the function programmatically
 ```swift
-hapticFeedbackOccurred(type: .soft)
+@Environment(\.hapticGenerator) var generator
+⋮
+generator.hapticFeedbackOccurred(type: .click)
 ```
 
 ## Feedback Types
