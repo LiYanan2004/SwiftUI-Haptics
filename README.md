@@ -1,5 +1,8 @@
 # SwiftUI-Haptics
 
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FLiYanan2004%2FSwiftUI-Haptics%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/LiYanan2004/SwiftUI-Haptics)
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FLiYanan2004%2FSwiftUI-Haptics%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/LiYanan2004/SwiftUI-Haptics)
+
 `Haptics` has a set of super-light modifiers and functions that adds haptic feedbacks to any SwiftUI `View`, for example, when the specific property changes or equals to a specific value, the feedback will be triggered automatically.
 
 ```swift
