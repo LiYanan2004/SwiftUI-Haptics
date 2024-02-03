@@ -11,48 +11,73 @@ import Haptics
 ⋮
 ⋮
 YourView()
-    .haptics(onChangeOf: value, type: .soft)
+    .hapticFeedback(.selection, trigger: isSelected)
 ```
 or using the function programmatically
 ```swift
-@Environment(\.hapticGenerator) var generator
-⋮
-generator.hapticFeedbackOccurred(type: .click)
+HapticGenerator.performFeedback(.selection)
 ```
 
-## Feedback Types
-
- - Notification Feedback
- - Impact Feedback
- - Selection Feedback
- - WKHaptic
- 
- ## Platforms
+## Platforms
 
 - iOS 14.0+
 - watchOS 7.0+
- 
-## Conditional Haptics
+- macOS 11.0+
 
-Sometimes, you just want to play haptic feedbacks only at a specific state. At this time, `.haptics(when:equalsTo:type:)` plays a role.
+## Haptic Feedbacks
 
-Of course, you can create multiple haptics on a single view:
+ - `start`: Indicates that an activity started. **(watchOS only)**
+ - `stop`: Indicates that an activity stopped. **(watchOS only)**
+ - `alignment`: Indicates the alignment of a dragged item. **(macOS only)**
+ - `decrease`: Indicates that an important value decreased below a significant threshold. **(watchOS only)**
+ - `increase`: Indicates that an important value increased above a significant threshold. **(watchOS only)**
+ - `levelChange`: Indicates movement between discrete levels of pressure. **(macOS only)**
+ - `selection`: Indicates that a UI element’s values are changing. **(iOS & watchOS)**
+ - `success`: Indicates that a task or action has completed. **(iOS & watchOS)**
+ - `warning`: Indicates that a task or action has produced a warning of some kind. **(iOS & watchOS)**
+ - `error`: Indicates that an error has occurred. **(iOS & watchOS)**
+ - `impact`: Provides a physical metaphor you can use to complement a visual experience. **(iOS & watchOS)**
+
+## Value-based Haptic Feedbacks
+
+Play haptic feedbacks when the value changes.
 
 ```swift
 YourView()
-    .haptics(when: value, equalsTo: .success, type: .success)
-    .haptics(when: value, equalsTo: .failure, type: .error)
+    .hapicFeedback(.selection, trigger: isSelected)
 ```
+ 
+## Dynamic Haptic Feedbacks
 
-## onAppear Haptics
+If the value being monitored changes, returns a `HapticFeedback` to be performed. 
 
-You can play a one-time haptic feedback when a view appears.
+Return `nil` means **DO NOT** perform any haptics.
+
+You can provide different haptic feedbacks based on your trigger value.
 
 ```swift
-Text("I love haptics.")
-    .triggersHapticFeedbackWhenAppear()
+YourView()
+    .hapicFeedback(trigger: workStatus) { _, newValue in
+        return switch {
+        case .success: .success
+        case .failure: .error
+        default: nil
+        }
+    }
+    .hapicFeedback(.impact, trigger: cameraSession.capturedPhoto) { _, newValue in
+        return newValue == true // Only plays feedback when photo has been taken
+    }
 ```
 
+## Looks familiar?
+
+Yeah. 
+
+If you want to use `.sensoryFeedback` API but need to support older platform, `SwiftUI-Haptics` is a better solution.
+
+Replace `sensoryFeedback` to `hapticFeedback`. 
+
+Everything just works.
 
 ## Swift Package Manager
 

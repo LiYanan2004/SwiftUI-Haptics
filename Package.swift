@@ -7,7 +7,8 @@ let package = Package(
     name: "SwiftUI-Haptics",
     platforms: [
         .iOS(.v14),
-        .watchOS(.v7)
+        .watchOS(.v7),
+        .macOS(.v11)
     ],
     products: [
         .library(name: "Haptics", targets: ["Haptics"]),
